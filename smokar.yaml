@@ -1,0 +1,23 @@
+substitutions:
+  device_id: smokar
+  device_name: Smokar
+  board: d1_mini_pro
+  ###########
+  ip_address: !secret smokar_ip
+  ota_pwd: !secret ota_pwd
+  api_key: !secret api_key
+  ap_wifi_pwd: !secret ap_pwd
+
+packages:
+  base:   !include ./packages/device_base_esp8266.yaml
+  logger: !include ./packages/logger.yaml
+
+spi:
+  miso_pin: GPIO12
+  clk_pin: GPIO14
+  
+sensor:
+  - platform: max6675
+    name: "Smokar Temperature 1"
+    cs_pin: GPIO2
+    update_interval: 10s

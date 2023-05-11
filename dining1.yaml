@@ -1,0 +1,12 @@
+substitutions:
+  device_id: dining1
+  device_name: Dining 1
+  ip_address: !secret dining1_ip
+  ota_pwd: !secret ota_pwd
+  api_key: !secret api_key
+  ap_wifi_pwd: !secret ap_pwd
+
+
+packages:
+  shelly_25light: !include ./packages/shelly_25light.yaml
+  logger: !include ./packages/logger.yaml

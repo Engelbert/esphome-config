@@ -1,0 +1,12 @@
+substitutions:
+  device_id: i32
+  device_name: Shelly i3 2
+  ip_address: !secret i32_ip
+  ota_pwd: !secret ota_pwd
+  api_key: !secret api_key
+  ap_wifi_pwd: !secret ap_pwd
+
+
+packages:
+  shelly_i3: !include ./packages/shelly_i3.yaml
+  logger: !include ./packages/logger.yaml

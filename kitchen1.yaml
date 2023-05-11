@@ -1,0 +1,12 @@
+substitutions:
+  device_id: kitchen1
+  device_name: Kitchen 1
+  ip_address: !secret kitchen1_ip
+  ota_pwd: !secret ota_pwd
+  api_key: !secret api_key
+  ap_wifi_pwd: !secret ap_pwd
+
+
+packages:
+  shelly_25: !include ./packages/shelly_25.yaml
+  logger: !include ./packages/logger.yaml

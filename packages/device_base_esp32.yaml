@@ -1,0 +1,12 @@
+substitutions:
+  platform: esp32
+  framework_type: esp-idf
+
+esp32:
+  framework:
+    type: ${framework_type}
+
+packages:
+  base:   !include device_base.yaml
+wifi:
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532

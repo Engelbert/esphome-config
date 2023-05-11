@@ -1,0 +1,11 @@
+substitutions:
+  platform: esp8266
+
+esp8266:
+  restore_from_flash: true
+
+packages:
+  base:   !include device_base.yaml
+
+wifi:
+  power_save_mode: HIGH # for ESP8266 LOW/HIGH are mixed up, esphome/issues/issues/1532
