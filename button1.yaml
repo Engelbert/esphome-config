@@ -1,0 +1,12 @@
+substitutions:
+  device_id: button1
+  device_name: Button 1
+  ip_address: !secret button1_ip
+  ota_pwd: !secret ota_pwd
+  api_key: !secret api_key
+  ap_wifi_pwd: !secret ap_pwd
+
+
+packages:
+  shelly_1: !include ./packages/shelly_1button.yaml
+  logger: !include ./packages/logger.yaml
