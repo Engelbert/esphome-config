@@ -1,0 +1,12 @@
+substitutions:
+  name: gl-s10-bt-proxy-ceb8ac
+  friendly_name: Bluetooth Proxy ceb8ac
+packages:
+  esphome.bluetooth-proxy: github://esphome/bluetooth-proxies/gl-s10.yaml@main
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+api:
+  encryption:
+    key: qJ4Tvmay9l167ORI2fRT1o2FHbCcyb1zLF6FQzF7m8c=
