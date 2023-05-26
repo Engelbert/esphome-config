@@ -3,10 +3,10 @@ substitutions:
   device_name: Kitchen 3
   ip_address: !secret kitchen3_ip
   ota_pwd: !secret ota_pwd
-  api_key: !secret api_key
+  api_key: !secret api_key_2
   ap_wifi_pwd: !secret ap_pwd
 
 
 packages:
-  shelly_1: !include ./packages/shelly_1.yaml
+  shelly_1: !include ./packages/shelly_1plug.yaml
   logger: !include ./packages/logger.yaml

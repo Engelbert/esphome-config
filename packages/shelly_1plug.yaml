@@ -1,0 +1,45 @@
+substitutions:
+  board: esp01_1m
+
+packages:
+  base:   !include device_base_esp8266.yaml
+  logger: !include logger.yaml
+
+
+# Shelly 1 detached switch config with fallback in case of wifi or api fail
+switch:
+  - platform: gpio
+    pin: GPIO4
+    name: "${device_name} Plug"
+    id: shelly_relay
+    # after reboot, keep the relay off. this prevents light turning on after a power outage
+    restore_mode: ALWAYS_ON
+    icon: mdi:power-plug
+
+binary_sensor:
+  - platform: gpio
+    name: ${device_name} Input
+    pin:
+      number: GPIO5
+    # small delay to prevent debouncing
+    filters:
+      - delayed_on_off: 50ms
+    # config for state change of input button
+    on_state:
+        then:
+          - if:
+              condition:
+                and:
+                  - wifi.connected:
+                  - api.connected:
+                  - switch.is_on: shelly_relay
+              # toggle smart light if wifi and api are connected and relay is on
+              then:
+                - homeassistant.event:
+                    event: esphome.${device_name}_button_pressed
+                    data:
+                      message: ${device_name} button was pressed
+              # else, toggle relay
+              else:
+                - switch.toggle: shelly_relay
+    id: shelly_button
