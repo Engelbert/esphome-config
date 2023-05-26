@@ -9,4 +9,4 @@ esphome:
   friendly_name: ${friendly_name}
 api:
   encryption:
-    key: !secret api_key
+    key: !secret api_key_2
