@@ -162,17 +162,17 @@ cover:
     name: ${device_name}
     id: roller
 
-    open_duration: 26s
     open_action:
       - switch.turn_on: open_relay
+    open_duration: 26s
 
-    close_duration: 26s
     close_action:
       - switch.turn_on: close_relay
+    close_duration: 26s
 
     stop_action:
       - switch.turn_off: close_relay
       - switch.turn_off: open_relay
 
-    #manual_control: true
+    manual_control: true
     assumed_state: true
